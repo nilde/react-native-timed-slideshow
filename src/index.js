@@ -69,7 +69,7 @@ export default class TimedSlideshow extends Component {
         let { items, loop } = this.props;
 
         let newIndex = (index + 1) % items.length;
-
+        if(this.slideShow)
         timer.stopAnimation(() => {
             if (!loop && newIndex === 0) {
                 // we reached the start again, stop the loop
@@ -275,8 +275,6 @@ export default class TimedSlideshow extends Component {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item, index) => `slide_item_${index}`}
                 />
-                {this.renderCloseIcon()}
-                {this.renderFooter()}
             </View>
         );
     }
